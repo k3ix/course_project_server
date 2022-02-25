@@ -14,10 +14,12 @@
     "dialect": "mysql"
   },
   "production": {
-    "username": "root",
-    "password": null,
-    "database": "database_production",
-    "host": "127.0.0.1",
+    "username": "bec18378f4867f",
+    "password": "62d20538",
+    "database": "heroku_ad0fd5367bada26",
+    "host": "eu-cdbr-west-02.cleardb.net",
     "dialect": "mysql"
   }
 }
+
+// mysql://bec18378f4867f:62d20538@eu-cdbr-west-02.cleardb.net/heroku_ad0fd5367bada26?reconnect=true
