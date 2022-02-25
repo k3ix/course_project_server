@@ -50,7 +50,7 @@ router.post("/register", async (req, res) => {
                     email: email,
                     password: hash,
                     isBlocked: false,
-                    isAdmin: false,
+                    isAdmin: true,
                     theme: "light",
                     lang: "en"
                 });
