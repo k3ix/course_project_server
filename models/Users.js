@@ -21,7 +21,11 @@ module.exports = (sequelize, DataTypes) => {
         theme: {
             type: DataTypes.STRING,
             allowNull: false,
-        }
+        },
+        lang: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
     });
 
     return Users;
