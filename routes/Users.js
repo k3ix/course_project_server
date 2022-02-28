@@ -39,7 +39,7 @@ router.put("/unblockUsers", async (req, res) => {
     res.json("unblocked successfully");
 });
 
-router.put("/adminUsers", async (req, res) => {
+router.put("/setAdmin", async (req, res) => {
     await Users.update( { isAdmin: true }, { where: { id: req.body, isBlocked: false } });
     res.json("set to admin successfully");
 });
