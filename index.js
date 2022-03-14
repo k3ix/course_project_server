@@ -9,6 +9,10 @@ const db = require("./models");
 
 const usersRouter = require("./routes/Users");
 app.use("/users", usersRouter);
+const tagsRouter = require("./routes/Tags");
+app.use("/tags", tagsRouter);
+const overviewsRouter = require("./routes/Overviews");
+app.use("/overviews", overviewsRouter);
 
 db.sequelize.sync().then(() => {
     app.listen(process.env.PORT || 3001, () => {
