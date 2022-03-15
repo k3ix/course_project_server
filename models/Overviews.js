@@ -25,11 +25,18 @@ module.exports = (sequelize, DataTypes) => {
         authorRating: {
             type: DataTypes.INTEGER,
             allowNull: false,
-        },
-        usersRating: {
-            type: DataTypes.DOUBLE,
         }
     });
+
+    Overviews.associate = (models) => {
+        Overviews.hasMany(models.Likes, {
+            onDelete: "cascade"
+        });
+
+        Overviews.hasMany(models.UsersRating, {
+            onDelete: "cascade"
+        });
+    }
 
     return Overviews;
 };
