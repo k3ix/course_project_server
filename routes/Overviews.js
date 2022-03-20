@@ -32,10 +32,9 @@ router.post("/editOverview/:id", async (req, res) => {
     res.json("updated successfully");
 });
 
-router.delete("delete/:id", async (req, res) => {
-    const id = req.params.id;
-    await Overviews.destroy({ where: { id: id } });
-    res.json("collection deleted successfully");
+router.put("/deleteOverviews", async (req, res) => {
+    await Overviews.destroy({ where: { id: req.body } });
+    res.json("deleted successfully");
 });
 
 module.exports = router;
