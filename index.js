@@ -13,6 +13,10 @@ const tagsRouter = require("./routes/Tags");
 app.use("/tags", tagsRouter);
 const overviewsRouter = require("./routes/Overviews");
 app.use("/overviews", overviewsRouter);
+const likesRouter = require('./routes/Likes');
+app.use("/likes", likesRouter);
+const commentsRouter = require('./routes/Comments');
+app.use("/comments", commentsRouter);
 
 db.sequelize.sync().then(() => {
     app.listen(process.env.PORT || 3001, () => {
