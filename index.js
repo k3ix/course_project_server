@@ -3,6 +3,8 @@ const app = express();
 const cors = require('cors');
 app.use(express.json());
 app.use(cors());
+const server = require("http").createServer(app);
+const io = require("socket.io")(server, { cors: { origin: "*" } });
 require("dotenv").config();
 
 const db = require("./models");
@@ -19,8 +21,18 @@ const commentsRouter = require('./routes/Comments');
 app.use("/comments", commentsRouter);
 
 db.sequelize.sync().then(() => {
-    app.listen(process.env.PORT || 3001, () => {
+    server.listen(process.env.PORT || 3001, () => {
         console.log("Server running on port 3001");
+    });
+
+    io.on("connection", socket => {
+        socket.on("sendComment", (data) => {
+            socket.broadcast.emit("sendCommentFromServ", data);
+        });
+
+        socket.on("disconnect", () => {
+            console.log("User " + socket.id + " disconnected")
+        });
     });
 });
 
