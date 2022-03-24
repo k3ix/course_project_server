@@ -1,15 +1,15 @@
 const express = require("express");
 const router = express.Router();
-const { Overviews, Likes } = require("../models");
+const { Overviews, Likes, UsersRating } = require("../models");
 
 router.get("/", async (req, res) => {
-    const listOfOverviews = await Overviews.findAll({ include: [Likes] });
+    const listOfOverviews = await Overviews.findAll({ include: [Likes, UsersRating] });
     res.json(listOfOverviews);
 });
 
 router.get("/byId/:id", async (req, res) => {
     const id = req.params.id;
-    const overview = await Overviews.findByPk(id, { include: [Likes] });
+    const overview = await Overviews.findByPk(id, { include: [Likes, UsersRating] });
     res.json(overview);
 });
 

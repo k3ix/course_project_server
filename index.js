@@ -19,6 +19,8 @@ const likesRouter = require('./routes/Likes');
 app.use("/likes", likesRouter);
 const commentsRouter = require('./routes/Comments');
 app.use("/comments", commentsRouter);
+const usersRatingRouter = require('./routes/UsersRating');
+app.use("/users-rating", usersRatingRouter);
 
 db.sequelize.sync().then(() => {
     server.listen(process.env.PORT || 3001, () => {
